@@ -1,0 +1,119 @@
+body {
+    margin: 0;
+    background-image: url("bg.png");
+    background-size: cover;       
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: black;
+    font-family: cursive;
+    text-align: center;
+    overflow: hidden;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+.year {
+    font-size: 80px;
+    animation: fade 0.8s ease-in-out;
+}
+
+@keyframes fade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 30px;
+    background: #ff4081;
+    color: white;
+    cursor: pointer;
+}
+
+.birthday-text {
+    font-size: 50px;
+    animation: pop 1s infinite alternate;
+}
+
+@keyframes pop {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+}
+
+#slideImg {
+    width: 450px;
+    height: 650px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgb(247, 14, 53);
+}
+
+canvas {
+    position:absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+#balloon-container {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 2;
+}
+
+/* HEART SHAPE */
+.balloon {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: red;
+    transform: rotate(-45deg);
+    animation: floatUp linear infinite;
+    opacity: 0.9;
+}
+
+.balloon::before,
+.balloon::after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: inherit;
+    border-radius: 50%;
+}
+
+.balloon::before {
+    top: -15px;
+    left: 0;
+}
+
+.balloon::after {
+    left: 15px;
+    top: 0;
+}
+
+/* FLOAT animation */
+@keyframes floatUp {
+    from {
+        transform: translateY(110vh) translateX(0) rotate(-45deg);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(-20vh) translateX(40px) rotate(-45deg);
+        opacity: 1;
+    }
+}
